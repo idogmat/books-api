@@ -1,15 +1,16 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState} from 'react';
 import {useDispatch} from "react-redux";
-import {setBooksTC} from "../../store/booksReducer";
+import {searchBooksTC, setSearch} from "../../store/booksReducer";
+import {useAppSelector} from "../../store";
 
 export const Search = () => {
-    const [search,setSearch]=useState('')
     const dispatch = useDispatch()
+    const { search,sortOrderBy, sortCategory} = useAppSelector(state => state.booksReducer)
     const setValue=(e:ChangeEvent<HTMLInputElement>)=>{
-        setSearch(e.target.value)
+        dispatch(setSearch(e.target.value))
     }
     const searchBooks=()=>{
-        dispatch(setBooksTC(search))
+        dispatch(searchBooksTC(search,sortCategory,sortOrderBy))
     }
     return (
         <div>
