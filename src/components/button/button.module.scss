@@ -1,0 +1,25 @@
+@import './../../styles/variables.scss';
+.btn {
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  border: none;
+  outline: 1px solid#fff;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 8px;
+  background: $background-primary;
+  color: $text-primary;
+  transition: all .2s ease;
+  box-shadow: 1px 6px 20px 1px #00000024;
+  &:hover{
+    background: $background-secondary;
+  }
+  &:active{
+    background: $code-bg;
+  }
+  &:disabled{
+    opacity: .1;
+  }
+}

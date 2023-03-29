@@ -1,0 +1,27 @@
+@import './../../styles/variables.scss';
+
+.main{
+  display: flex;
+  justify-content: space-around;
+  background-color: $code-bg;
+  box-shadow: 1px 6px 20px 1px #00000024;
+  border-radius: 8px;
+  &__imgBlock{
+    padding: 1rem;
+    &__img{
+      width: 250px;
+      height: 400px;
+      box-shadow: 1px 3px 5px 2px #000;
+    }
+  }
+  &__info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  @media (max-width: 600px) {
+  flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

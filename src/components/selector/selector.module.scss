@@ -1,0 +1,44 @@
+@import './../../styles/variables.scss';
+.s {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  &__selector {
+    padding: 12px 20px;
+    width: 400px;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.15s ease-in-out;
+
+    &:focus {
+      outline: 1px solid $border-focus;
+    }
+  }
+  &__option{
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    border: none;
+    padding: 15px 20px;
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 8px;
+    background: $background-primary;
+    color: $text-primary;
+    transition: all .2s ease;
+    box-shadow: 1px 6px 20px 1px #00000024;
+    &:hover{
+      color:var(--color-3-dark);
+      background: $background-secondary;
+    }
+  }
+  @media (max-width: 500px) {
+    .search {
+      &__input {
+        width: 300px;
+      }
+    }
+  }
+}

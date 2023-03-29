@@ -2,13 +2,15 @@ import React, {FC} from 'react';
 import s from './book.module.scss'
 import {IBook} from "../../api/type";
 import {stripText} from "./utils";
+import {Link} from "react-router-dom";
+import {Button} from "../button";
 
-export const Book: FC<IBook> = ({accessInfo, volumeInfo}) => {
+export const Book: FC<IBook> = ({accessInfo, volumeInfo,id}) => {
     return (
         <div className={s.book}>
             <img
                 className={s.book__img}
-                src={volumeInfo?.imageLinks?.thumbnail || 'error'}
+                src={volumeInfo?.imageLinks?.smallThumbnail || 'error'}
                 alt="book"
             />
             <div className={s.book__info}>
@@ -29,13 +31,13 @@ export const Book: FC<IBook> = ({accessInfo, volumeInfo}) => {
                         Published: {volumeInfo?.publishedDate?.slice(0, 4)}
                     </p>
                 </div>
-                <a className={s.book__actions}
-                   target="_blank"
-                   href={volumeInfo?.previewLink}
-                   rel="noreferrer"
+                <Button>
+                <Link
+                   to={`/book/${id}`}
                 >
                     more info
-                </a>
+                </Link>
+                </Button>
             </div>
         </div>
     );
